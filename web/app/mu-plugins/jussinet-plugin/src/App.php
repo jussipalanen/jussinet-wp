@@ -25,6 +25,7 @@ class App
     public function postTypes()
     {
         (new Cpt\Project)->init();
+        (new Cpt\Contact)->init();
     }
 
 
