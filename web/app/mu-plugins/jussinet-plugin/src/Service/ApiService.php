@@ -3,22 +3,40 @@ namespace JussiNet\Service;
 
 use JussiNet\Api;
 
+
+/**
+ * API service
+ */
 class ApiService
 {
 
     private $project;
     private $contact;
     private $news;
+    private $about;
 
+
+    /**
+     * Init the variables
+     *
+     * @return void
+     */
     public function init()
     {
         $this->project = (new Api\Project);
         $this->contact = (new Api\Contact);
-        $this->news = (new Api\News);
+        $this->news    = (new Api\News);
+        $this->about    = (new Api\About);
 
         add_action('rest_api_init', [$this, 'routes'] );
     }
 
+
+    /**
+     * Registering the API rest routes
+     *
+     * @return void
+     */
     public function routes()
     {
         /**
@@ -47,6 +65,18 @@ class ApiService
             'methods' => 'GET',
             'callback' => [$this->news, 'get'],
         ));
+
+
+
+        /**
+         * About
+         */
+        register_rest_route('api', $this->about->apiUrl . '/get', array(
+            'methods' => 'GET',
+            'callback' => [$this->about, 'get'],
+        ));
+
+
 
     }
 }
