@@ -1,0 +1,20 @@
+{
+    "name": "jusa/jussinet-plugin",
+    "description": "Main plugin for the JussiNet. This allows only the backend and API usage.",
+    "type": "wp-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "JussiNet\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jussi Alanen",
+            "email": "juzapala@gmail.com"
+        }
+    ],
+    "require": {
+        "nategood/httpful": "^0.3.2"
+    }
+}
