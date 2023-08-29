@@ -1,6 +1,7 @@
 <?php 
 namespace JussiNet\Api;
 
+use JussiNet\Codes;
 use WP_REST_Request;
 
 class Contact
@@ -17,7 +18,8 @@ class Contact
         $data = $request->get_params();
         $post_ID = wp_insert_post([
             'post_title' =>  (($data['firstname'] ?: null) && ($data['lastname'] ?: null)) ? trim($data['firstname'] . ' ' . $data['lastname'])  : 'Contact message',
-            'post_type' => 'contacts',
+            'post_type' => Codes::CONTACT_POST_TYPE,
+            'post_status' => 'publish',
         ]);
 
         $post = get_post( $post_ID );

@@ -2,13 +2,15 @@
 
 namespace JussiNet\Cpt;
 
+use JussiNet\Codes;
+
 class Contact
 {
     public function init()
     {
         # Our custom post type function
         register_post_type(
-            'contacts',
+            Codes::CONTACT_POST_TYPE,
             # CPT Options
             array(
                 'labels' => array(
@@ -19,7 +21,7 @@ class Contact
                 'has_archive' => true,
                 'rewrite' => ['slug' => 'contacts'],
                 'show_in_rest' => true,
-                'supports' => array('title' ),
+                'supports' => array('title'),
             )
         );
     }

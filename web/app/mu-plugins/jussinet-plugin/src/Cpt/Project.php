@@ -2,13 +2,15 @@
 
 namespace JussiNet\Cpt;
 
+use JussiNet\Codes;
+
 class Project
 {
     public function init()
     {
         # Our custom post type function
         register_post_type(
-            'projects',
+            Codes::PROJECT_POST_TYPE,
             # CPT Options
             array(
                 'labels' => array(
@@ -19,7 +21,7 @@ class Project
                 'has_archive' => true,
                 'rewrite' => ['slug' => 'projects'],
                 'show_in_rest' => true,
-                'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
+                'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
             )
         );
     }
