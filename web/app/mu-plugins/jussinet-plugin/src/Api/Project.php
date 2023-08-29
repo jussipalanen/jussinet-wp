@@ -1,6 +1,7 @@
 <?php 
 namespace JussiNet\Api;
 
+use JussiNet\Codes;
 use WP_REST_Request;
 
 class Project
@@ -16,7 +17,7 @@ class Project
     {
         $posts = get_posts([
             'posts_per_page' => -1,
-            'post_type' => 'projects',
+            'post_type' => Codes::PROJECT_POST_TYPE,
         ]);
 
         $posts = array_map( function($item)
@@ -36,7 +37,7 @@ class Project
     {
         $post = get_posts([
             'name' => $request->get_param('slug'),
-            'post_type' => 'projects',
+            'post_type' => Codes::PROJECT_POST_TYPE,
             'posts_per_page' => -1,
         ]);
         return !empty($post) ? reset($post) : wp_send_json_error('The project not found');

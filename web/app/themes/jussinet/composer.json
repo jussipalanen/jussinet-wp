@@ -1,0 +1,20 @@
+{
+  "name": "jusa/jussinet",
+  "description": "Headless WordPress theme",
+  "type": "wordpress-theme",
+  "require": {
+    "php": "^8.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Jussi Alanen",
+      "email": "juzapala@gmail.com"
+    }
+  ]
+}
