@@ -37,6 +37,7 @@ class App
     public function services()
     {
         (new Service\AppService)->init();
+        (new Service\AcfService)->init();
         (new Service\ApiService)->init();
         
     }

@@ -22,6 +22,7 @@ class News
         $posts = array_map( function($item)
         {
             $item->featured_image = get_the_post_thumbnail_url( $item, 'default' ) ?: null;
+            $item->tags = get_the_terms( $item->ID, 'post_tag' ) ?: [];
             return $item;
         }, $posts);
         return $posts;
