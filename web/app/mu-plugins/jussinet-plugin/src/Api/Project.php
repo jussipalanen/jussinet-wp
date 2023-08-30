@@ -18,6 +18,7 @@ class Project
         $posts = get_posts([
             'posts_per_page' => -1,
             'post_type' => Codes::PROJECT_POST_TYPE,
+            'post_status' => 'publish',
         ]);
 
         $posts = array_map( function($item)
@@ -40,6 +41,7 @@ class Project
             'name' => $request->get_param('slug'),
             'post_type' => Codes::PROJECT_POST_TYPE,
             'posts_per_page' => -1,
+            'post_status' => 'publish',
         ]);
         return !empty($post) ? reset($post) : wp_send_json_error('The project not found');
     }

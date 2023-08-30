@@ -17,6 +17,7 @@ class News
         $posts = get_posts([
             'posts_per_page' => -1,
             'post_type' => 'post',
+            'post_status' => 'publish',
         ]);
 
         $posts = array_map( function($item)
@@ -39,6 +40,7 @@ class News
             'name' => $request->get_param('slug'),
             'post_type' => 'post',
             'posts_per_page' => -1,
+            'post_status' => 'publish',
         ]);
         return !empty($post) ? reset($post) : wp_send_json_error('The post not found');
     }
